@@ -1,0 +1,30 @@
+{% extends "base_generic.html" %}
+
+<title>{% block title %}Lista de meseros peruanos (VBC){% endblock %}</title>
+
+{% block content %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Nº</th>
+      <th scope="col">Mesero</th>
+      <th scope="col">Nacionalidad</th>
+      <th scope="col">Edad</th>
+        <th scope="col">DNI</th>
+    </tr>
+  </thead>
+  <tbody>
+{% for elemneto in object_list %}
+    {% if elemneto.nacionalidad == 'Peruano' %}
+    <tr>
+      <th scope="row">{{ forloop.counter }}</th>
+      <td>{{ elemneto.nombre }}</td>
+      <td>{{ elemneto.nacionalidad }}</td>
+      <td>{{ elemneto.edad }}</td>
+      <td>{{ elemneto.dni }}</td>
+    </tr>
+    {% endif %}
+{% endfor %}
+  </tbody>
+</table>
+{% endblock %}
